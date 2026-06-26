@@ -81,7 +81,7 @@ public class HPHConfig {
         }
     }
 
-    private void onWrite() {
+    public void saveWhitelist() {
         String textNew = WhitelistManager.whitelist.toString();
         whitelistString = textNew.substring(1, textNew.length() - 1);
         TextDisplay.saturationStyle = Style.EMPTY.withColor(saturationColour);
@@ -119,7 +119,7 @@ public class HPHConfig {
         String textNew = WhitelistManager.whitelist.toString();
         whitelistString = textNew.substring(1, textNew.length() - 1);
         return YetAnotherConfigLib.createBuilder()
-                .save(this::onWrite)
+                .save(this::saveWhitelist)
                 .title(Text.literal("HPH Display"))
 
                 .category(ConfigCategory.createBuilder()
