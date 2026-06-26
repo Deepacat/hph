@@ -78,22 +78,22 @@ public class HPH implements ClientModInitializer {
         else WhitelistManager.targeted = null;
 
         if (toggleTextKey.wasPressed()) {
-            ((KeyBindingAccessor) toggleTextKey).reset();
+            ((KeyBindingAccessor) toggleTextKey).callReset();
             onToggle(config.enableText ? "§eDisabled text health display." : "§eEnabled text health display.");
             config.enableText = !config.enableText;
         }
         if (toggleGlowKey.wasPressed()) {
-            ((KeyBindingAccessor) toggleGlowKey).reset();
+            ((KeyBindingAccessor) toggleGlowKey).callReset();
             onToggle(config.enableGlow ? "§eDisabled health glowing." : "§eEnabled health glowing.");
             config.enableGlow = !config.enableGlow;
         }
         if (toggleTextWhitelistKey.wasPressed()) {
-            ((KeyBindingAccessor) toggleTextWhitelistKey).reset();
+            ((KeyBindingAccessor) toggleTextWhitelistKey).callReset();
             onToggle(config.enableWhitelistText ? "§eDisabled text whitelist." : "§eEnabled text whitelist.");
             config.enableWhitelistText = !config.enableWhitelistText;
         }
         if (toggleGlowWhitelistKey.wasPressed()) {
-            ((KeyBindingAccessor) toggleGlowWhitelistKey).reset();
+            ((KeyBindingAccessor) toggleGlowWhitelistKey).callReset();
             onToggle(config.enableWhitelistGlow ? "§eDisabled glow whitelist." : "§eEnabled glow whitelist.");
             config.enableWhitelistGlow = !config.enableWhitelistGlow;
         }
