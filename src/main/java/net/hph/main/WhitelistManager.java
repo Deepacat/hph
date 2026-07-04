@@ -68,7 +68,7 @@ public class WhitelistManager {
         String name = StringArgumentType.getString(context, "Player");
         whitelist.add(name);
         HPHConfig.INSTANCE.saveWhitelist();
-        client.inGameHud.getChatHud().addMessage(Text.of("Added " + name + " to HPH whitelist."));
+        client.inGameHud.getChatHud().addMessage(Text.translatable("hph.command.add.success", name));
         return 1;
     }
 
@@ -77,7 +77,7 @@ public class WhitelistManager {
         String name = StringArgumentType.getString(context, "Player");
         whitelist.remove(name);
         HPHConfig.INSTANCE.saveWhitelist();
-        client.inGameHud.getChatHud().addMessage(Text.of("Removed " + name + " from HPH whitelist."));
+        client.inGameHud.getChatHud().addMessage(Text.translatable("hph.command.remove.success", name));
         return 1;
     }
 
@@ -85,7 +85,7 @@ public class WhitelistManager {
     public static int clear() {
         whitelist.clear();
         HPHConfig.INSTANCE.saveWhitelist();
-        client.inGameHud.getChatHud().addMessage(Text.of("Cleared HPH whitelist."));
+        client.inGameHud.getChatHud().addMessage(Text.translatable("hph.command.clear.success"));
         return 1;
     }
 
@@ -124,8 +124,10 @@ public class WhitelistManager {
 
         HPHConfig.INSTANCE.saveWhitelist();
 
-        client.inGameHud.setOverlayMessage(Text.of("§e" + (whitelisted ? "Removed " : "Added ")
-                + name + (whitelisted ? " from whitelist." : " to whitelist.")), false);
+        client.inGameHud.setOverlayMessage(
+                Text.translatable(whitelisted ? "hph.whitelist.toggle.removed" : "hph.whitelist.toggle.added", name),
+                false
+        );
 
         PlayerEntity player = client.player;
         client.world.playSound(player.getX(), player.getY(), player.getZ(),
